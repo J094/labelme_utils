@@ -51,7 +51,7 @@ def main():
 
         img = labelme.utils.img_data_to_arr(label_file.imageData)
         [h, w] = img.shape[:2]
-        print(h, w)
+        # print(h, w)
 
         bboxes = []
         labels = []
@@ -83,6 +83,8 @@ def main():
             
             with open(out_txt_file, "a") as f:
                 f.writelines(bbox_to_write)
+        with open(out_txt_file, "a") as f:
+            f.writelines(" ")
 
         if not args.noviz:
             captions = [class_names[label] for label in labels]
